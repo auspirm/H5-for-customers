@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>美容院精油爆品供应链 - 源头直供</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: #1a1a2e;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+        .page {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 24px;
+            position: relative;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            overflow: hidden;
+        }
+        .page-cover {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+        }
+        .page-cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        .deco-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,215,0,0.05);
+            animation: float 6s ease-in-out infinite;
+        }
+        .deco-circle:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            right: -100px;
+            animation-delay: 0s;
+        }
+        .deco-circle:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: 20%;
+            left: -50px;
+            animation-delay: 2s;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        .content {
+            position: relative;
+            z-index: 10;
+            max-width: 400px;
+            width: 100%;
+            animation: fadeInUp 1s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .main-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.3;
+            margin-bottom: 16px;
+            text-align: center;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #fff 0%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .sub-title {
+            font-size: 18px;
+            color: #ffd700;
+            text-align: center;
+            margin-bottom: 24px;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+        .desc-text {
+            font-size: 15px;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+        .bottom-text {
+            font-size: 14px;
+            color: rgba(255,215,0,0.9);
+            text-align: center;
+            padding: 12px 24px;
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 30px;
+            display: inline-block;
+            margin: 0 auto;
+            font-weight: 600;
+        }
+        .section-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+        }
+        .feature-list { list-style: none; width: 100%; }
+        .feature-item {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,215,0,0.2);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            color: #fff;
+            font-size: 15px;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 50px;
+            transition: all 0.3s ease;
+        }
+        .feature-item::before {
+            content: '✦';
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ffd700;
+            font-size: 20px;
+        }
+        .feature-item strong {
+            color: #ffd700;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 16px;
+        }
+        .price-table {
+            width: 100%;
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+        .table-header {
+            background: linear-gradient(135deg, rgba(255,215,0,0.3) 0%, rgba(255,215,0,0.1) 100%);
+            padding: 16px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffd700;
+            text-align: center;
+        }
+        .table-row {
+            display: flex;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 14px 12px;
+            font-size: 13px;
+            color: #fff;
+            align-items: center;
+        }
+        .table-row:last-child { border-bottom: none; }
+        .table-row.header-row {
+            background: rgba(255,215,0,0.1);
+            font-weight: 600;
+            font-size: 12px;
+            color: #ffd700;
+        }
+        .col-num { width: 8%; text-align: center; }
+        .col-name { width: 32%; padding-right: 8px; }
+        .col-price { width: 20%; text-align: center; color: #ffd700; font-weight: 600; }
+        .col-discount1 { width: 20%; text-align: center; color: #ff6b6b; }
+        .col-discount2 { width: 20%; text-align: center; color: #4ecdc4; }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(255,215,0,0.2) 0%, rgba(255,215,0,0.05) 100%);
+            border: 1px solid rgba(255,215,0,0.4);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .highlight-box .label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 8px;
+        }
+        .highlight-box .value {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ffd700;
+        }
+        .cta-button {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #1a1a2e;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(255,215,0,0.3);
+            animation: breathe 2s ease-in-out infinite;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            max-width: 300px;
+        }
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(255,215,0,0.3); }
+            50% { transform: scale(1.02); box-shadow: 0 15px 40px rgba(255,215,0,0.5); }
+        }
+        .page-indicator {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 100;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transition: all 0.3s;
+        }
+        .dot.active {
+            background: #ffd700;
+            width: 24px;
+            border-radius: 4px;
+        }
+        .nav-hint {
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+            animation: bounce 2s infinite;
+            z-index: 100;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+        .policy-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+        .policy-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: #1a1a2e;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        .policy-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 8px;
+        }
+        .policy-desc {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+        .final-page .main-title { font-size: 28px; }
+        .contact-box {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid #ffd700;
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .contact-label {
+            font-size: 16px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        .wechat-id {
+            font-size: 32px;
+            color: #ffd700;
+            font-weight: 800;
+            margin: 20px 0;
+            padding: 15px 30px;
+            background: rgba(255,215,0,0.15);
+            border-radius: 15px;
+            display: inline-block;
+            border: 2px solid rgba(255,215,0,0.5);
+            letter-spacing: 3px;
+            text-shadow: 0 2px 10px rgba(255,215,0,0.3);
+            cursor: pointer;
+        }
+        .copy-hint {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            margin-top: 15px;
+        }
+        .scroll-hint {
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            animation: fadeInOut 2s infinite;
+        }
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+        .arrow-down {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid #ffd700;
+            border-bottom: 2px solid #ffd700;
+            transform: rotate(45deg);
+        }
+        @media (max-height: 700px) {
+            .page { padding: 20px 16px; }
+            .main-title { font-size: 26px; }
+            .section-title { font-size: 22px; }
+            .feature-item { padding: 16px; padding-left: 44px; font-size: 14px; }
+            .table-row { padding: 12px 8px; font-size: 12px; }
+            .wechat-id { font-size: 24px; padding: 12px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 第1页：封面 -->
+    <section class="page page-cover" data-index="0">
+        <div class="deco-circle"></div>
+        <div class="deco-circle"></div>
+        <div class="content">
+            <div class="sub-title">◆ 源头农场直供 · 抢占情绪经济风口 ◆</div>
+            <h1 class="main-title">美容院精油<br>爆品供应链</h1>
+            <p class="desc-text">
+                全球优质产地精油｜院线专用复方油<br>
+                拿货即送情绪疗愈线上课<br>
+                线下复训专享5折
+            </p>
+            <div style="text-align: center;">
+                <span class="bottom-text">一瓶享代理批发价</span>
+            </div>
+        </div>
+        <div class="scroll-hint">
+            <span>向上滑动</span>
+            <div class="arrow-down"></div>
+        </div>
+    </section>
+
+    <!-- 第2页：核心优势 -->
+    <section class="page" data-index="1">
+        <div class="content">
+            <h2 class="section-title">我们的核心优势</h2>
+            <div class="sub-title" style="margin-bottom: 30px; font-size: 16px;">源头原料商 · 真正无中间商差价</div>
+            <ul class="feature-list">
+                <li class="feature-item">
+                    <strong>全球农场直供</strong>
+                    伊朗大马士革玫瑰、印度檀香、欧洲有机花类
+                </li>
+                <li class="feature-item">
+                    <strong>自有供应链</strong>
+                    纯度高、活性强、不掺矿物油
+                </li>
+                <li class="feature-item">
+                    <strong>院线专用配方</strong>
+                    安全温和，敏肌/产后均可使用
+                </li>
+                <li class="feature-item">
+                    <strong>价格透明</strong>
+                    给美容院预留充足利润空间
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 第3页：为什么必须做精油 -->
+    <section class="page" data-index="2">
+        <div class="content">
+            <h2 class="section-title">为什么必须做精油项目</h2>
+            <div class="sub-title" style="margin-bottom: 30px; font-size: 16px;">情绪需求爆发 · 门店增收新风口</div>
+            <div class="highlight-box">
+                <div class="label">现代人焦虑、失眠、压力大、内分泌失调激增</div>
+                <div class="value" style="font-size: 20px; margin-top: 10px;">芳香疗愈 = 高客单 + 高复购 + 高转介绍</div>
+            </div>
+            <ul class="feature-list">
+                <li class="feature-item">提升门店专业度与档次</li>
+                <li class="feature-item">一油多用，适配面部/身体/私密/养生全项目</li>
+                <li class="feature-item">零售价可达批发价3倍，利润空间拉满</li>
+                <li class="feature-item">客户体验强，锁客更轻松</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 第4页：合作扶持政策 -->
+    <section class="page" data-index="3">
+        <div class="content">
+            <h2 class="section-title">合作扶持政策</h2>
+            <div class="sub-title" style="margin-bottom: 30px; font-size: 16px;">拿货即享双重培训扶持</div>
+            <div class="policy-card">
+                <div class="policy-number">1</div>
+                <div class="policy-title">免费赠送</div>
+                <div class="policy-desc">情绪疗愈线上专业培训课程<br>（芳香心理学+项目话术+操作方案）</div>
+            </div>
+            <div class="policy-card">
+                <div class="policy-number">2</div>
+                <div class="policy-title">线下复训专享5折</div>
+                <div class="policy-desc">手法实操 · 店销拓客 · 疗程设计<br>持续赋能门店盈利</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第5页：拿货政策 -->
+    <section class="page" data-index="4">
+        <div class="content">
+            <h2 class="section-title">拿货政策说明</h2>
+            <div class="sub-title" style="margin-bottom: 30px; font-size: 16px;">灵活拿货 · 无压力创业</div>
+            <div class="highlight-box">
+                <div class="label">规格</div>
+                <div class="value">100ml/瓶院线装</div>
+            </div>
+            <ul class="feature-list">
+                <li class="feature-item"><strong>1瓶起批</strong>一瓶享代理批发价</li>
+                <li class="feature-item"><strong>10–100瓶</strong>享 8折优惠</li>
+                <li class="feature-item"><strong>101–1000瓶</strong>享 6折优惠</li>
+            </ul>
+            <div class="highlight-box" style="margin-top: 20px;">
+                <div class="label">建议零售价</div>
+                <div class="value" style="font-size: 24px;">批发价 × 3</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第6页：面部护理系列 -->
+    <section class="page" data-index="5">
+        <div class="content" style="max-width: 100%; padding: 0 12px;">
+            <h2 class="section-title">面部护理系列</h2>
+            <div class="sub-title" style="margin-bottom: 20px; font-size: 14px;">100ml/瓶 · 单位：元</div>
+            <div class="price-table">
+                <div class="table-header">面部护理系列报价单</div>
+                <div class="table-row header-row">
+                    <div class="col-num">序号</div>
+                    <div class="col-name">产品名称</div>
+                    <div class="col-price">批发价</div>
+                    <div class="col-discount1">10-100瓶</div>
+                    <div class="col-discount2">101-1000瓶</div>
+                </div>
+                <div class="table-row">
+                    <div class="col-num">1</div>
+                    <div class="col-name">水润保湿复方精油</div>
+                    <div class="col-price">150</div>
+                    <div class="col-discount1">120</div>
+                    <div class="col-discount2">90</div>
+                </div>
+                <div class="table-row">
+                    <div class="col-num">2</div>
+                    <div class="col-name">提亮焕肤复方精油</div>
+                    <div class="col-price">150</div>
+                    <div class="col-discount1">120</div>
+                    <div class="col-discount2">90</div>
+                </div>
+                <div class="table-row">
+                    <div class="col-num">3</div>
+                    <div class="col-name">紧致抗衰复方精油</div>
+                    <div class="col-price">180</div>
+                    <div class="col-discount1">144</div>
+                    <div class="col-discount2">108</div>
+                </div>
+                <div class="table-row">
+                    <div class="col-num">4</div>
+                    <div class="col-name">舒缓修护复方精油</div>
+                    <div class="col-price">150</div>
+                    <div class="col-discount1">120</div>
+                    <div class="col-discount2">90</div>
+                </div>
+                <div class="table-row" style="background: rgba(255,215,0,0.1);">
+                    <div class="col-num">5</div>
+                    <div class="col-name">大马士革玫瑰顶奢护肤油</div>
+                    <div class="col-price">580</div>
+                    <div class="col-discount1">464</div>
+                    <div class="col-discount2">348</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第7页：身体养生系列 -->
+    <section class="page" data-index="6">
+        <div class="content" style="max-width: 100%; padding: 0 12px;">
+            <h2 class="section-title">身体养生系列</h2>
+            <div class="sub-title" style="margin-bottom: 20px; font-size: 14px;">100ml/瓶 · 单位：元</div>
+            <div class="price-table">
+                <div class="table-header">身体养生系列报价单</div>
+                <div class="table-row header-row">
+                    <div class="col-num">序号</div>
+                    <div class="col-name">产品名称</div>
+                    <div class="col-price">批发价</div>
+                    <div class="col-discount1">10-100瓶</div>
+                    <div class="col-discount2">101-1000瓶</div>
+                </div>
+                <div class="table-row">
+                    <div class="col-num">1</div>
+                    <div class="col-name">疏通肩颈复方精油</div>
+                    <div class="col-price">90</div>
+                    <div class="col-discount1">72</div>
+                    <div class="col-discount2">54</div>
+                </div>
+                <div class="table-row">
+                    <div class="col-num">2</div>
+                    <div class="col-name">暖宫散寒复方精油</div>
+                    <div class="col-price">150</div>
+                    <div class="col-discount1">120</div>
+                    <div class="col-discount2">90</div>
+                </div>
+                <div class="table-row">
+                    <div class="col-num">3</div>
+                    <div class="col-name">淋巴排毒复方精油</div>
+                    <div class="col-price">120</div>
+                    <div class="col-discount1">96</div>
+                    <div class="col-discount2">72</div>
+                </div>
+                <div class="table-row">
+                    <div class="col-num">4</div>
+                    <div class="col-name">舒缓助眠复方精油</div>
+                    <div class="col-price">150</div>
+                    <div class="col-discount1">120</div>
+                    <div class="col-discount2">90</div>
+                </div>
+                <div class="table-row">
+                    <div class="col-num">5</div>
+                    <div class="col-name">头皮护养按摩油</div>
+                    <div class="col-price">150</div>
+                    <div class="col-discount1">120</div>
+                    <div class="col-discount2">90</div>
+                </div>
+                <div class="table-row">
+                    <div class="col-num">6</div>
+                    <div class="col-name">芳香开背全身按摩油</div>
+                    <div class="col-price">80</div>
+                    <div class="col-discount1">64</div>
+                    <div class="col-discount2">48</div>
+                </div>
+                <div class="table-row">
+                    <div class="col-num">7</div>
+                    <div class="col-name">肾部保养精油</div>
+                    <div class="col-price">180</div>
+                    <div class="col-discount1">144</div>
+                    <div class="col-discount2">108</div>
+                </div>
+                <div class="table-row">
+                    <div class="col-num">8</div>
+                    <div class="col-name">女性私护调理精油</div>
+                    <div class="col-price">180</div>
+                    <div class="col-discount1">144</div>
+                    <div class="col-discount2">108</div>
+                </div>
+                <div class="table-row">
+                    <div class="col-num">9</div>
+                    <div class="col-name">解郁解压荷尔蒙调理精油</div>
+                    <div class="col-price">180</div>
+                    <div class="col-discount1">144</div>
+                    <div class="col-discount2">108</div>
+                </div>
+                <div class="table-row">
+                    <div class="col-num">10</div>
+                    <div class="col-name">气血补养精油</div>
+                    <div class="col-price">150</div>
+                    <div class="col-discount1">120</div>
+                    <div class="col-discount2">90</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第8页：塑形纤体系列 -->
+    <section class="page" data-index="7">
+        <div class="content" style="max-width: 100%; padding: 0 12px;">
+            <h2 class="section-title">塑形纤体系列</h2>
+            <div class="sub-title" style="margin-bottom: 20px; font-size: 14px;">100ml/瓶 · 单位：元</div>
+            <div class="price-table">
+                <div class="table-header">塑形纤体系列报价单</div>
+                <div class="table-row header-row">
+                    <div class="col-num">序号</div>
+                    <div class="col-name">产品名称</div>
+                    <div class="col-price">批发价</div>
+                    <div class="col-discount1">10-100瓶</div>
+                    <div class="col-discount2">101-1000瓶</div>
+                </div>
+                <div class="table-row">
+                    <div class="col-num">1</div>
+                    <div class="col-name">紧致塑型复方精油</div>
+                    <div class="col-price">150</div>
+                    <div class="col-discount1">120</div>
+                    <div class="col-discount2">90</div>
+                </div>
+                <div class="table-row">
+                    <div class="col-num">2</div>
+                    <div class="col-name">产后修护复方精油</div>
+                    <div class="col-price">180</div>
+                    <div class="col-discount1">144</div>
+                    <div class="col-discount2">108</div>
+                </div>
+            </div>
+            <div class="highlight-box" style="margin-top: 30px;">
+                <div class="label">建议零售价统一为批发价的3倍</div>
+                <div class="value" style="font-size: 18px; margin-top: 10px;">利润空间充足 · 品质保障</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第9页：结尾招商页 - 无二维码，仅微信号 -->
+    <section class="page final-page" data-index="8">
+        <div class="content">
+            <div class="sub-title">◆ 做美容院的精油源头仓库 ◆</div>
+            <h1 class="main-title" style="font-size: 28px;">低成本做高端<br>芳香疗愈生意</h1>
+            <p class="desc-text" style="margin-bottom: 30px;">
+                源头供货 · 品质保障 · 培训赋能 · 长期扶持
+            </p>
+            <div class="contact-box">
+                <div class="contact-label">咨询加盟 · 添加微信</div>
+                <div class="wechat-id" onclick="copyWechat()">ZKRMgroup</div>
+                <div class="copy-hint">点击复制微信号</div>
+            </div>
+            <button class="cta-button" onclick="alert('请添加微信 ZKRMgroup 咨询详情')">立即咨询锁定政策</button>
+            <p style="color: rgba(255,215,0,0.8); font-size: 14px; margin-top: 20px; text-align: center;">
+                抢占情绪经济财富风口
+            </p>
+        </div>
+    </section>
+
+    <!-- 页码指示器 -->
+    <div class="page-indicator">
+        <div class="dot active" data-index="0"></div>
+        <div class="dot" data-index="1"></div>
+        <div class="dot" data-index="2"></div>
+        <div class="dot" data-index="3"></div>
+        <div class="dot" data-index="4"></div>
+        <div class="dot" data-index="5"></div>
+        <div class="dot" data-index="6"></div>
+        <div class="dot" data-index="7"></div>
+        <div class="dot" data-index="8"></div>
+    </div>
+
+    <!-- 导航提示 -->
+    <div class="nav-hint">↑ 向上滑动切换页面</div>
+
+    <script>
+        // 页面滚动逻辑
+        const pages = document.querySelectorAll('.page');
+        const dots = document.querySelectorAll('.dot');
+        let currentPage = 0;
+        
+        function updateIndicator(index) {
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+        
+        function scrollToPage(index) {
+            if (index < 0 || index >= pages.length) return;
+            currentPage = index;
+            pages[index].scrollIntoView({ behavior: 'smooth' });
+            updateIndicator(index);
+        }
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const index = parseInt(entry.target.dataset.index);
+                    currentPage = index;
+                    updateIndicator(index);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        pages.forEach(page => observer.observe(page));
+        
+        let touchStartY = 0;
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+        
+        document.addEventListener('touchend', (e) => {
+            const touchEndY = e.changedTouches[0].screenY;
+            const diff = touchStartY - touchEndY;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) scrollToPage(currentPage + 1);
+                else scrollToPage(currentPage - 1);
+            }
+        }, { passive: true });
+        
+        let wheelTimeout;
+        document.addEventListener('wheel', (e) => {
+            clearTimeout(wheelTimeout);
+            wheelTimeout = setTimeout(() => {
+                if (e.deltaY > 0) scrollToPage(currentPage + 1);
+                else scrollToPage(currentPage - 1);
+            }, 50);
+        }, { passive: true });
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => scrollToPage(index));
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') scrollToPage(currentPage + 1);
+            else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') scrollToPage(currentPage - 1);
+        });
+        
+        // 复制微信号功能
+        function copyWechat() {
+            const wechatId = 'ZKRMgroup';
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(wechatId).then(() => {
+                    alert('微信号已复制：' + wechatId);
+                });
+            } else {
+                const input = document.createElement('input');
+                input.value = wechatId;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand('copy');
+                document.body.removeChild(input);
+                alert('微信号已复制：' + wechatId);
+            }
+        }
+        
+        // 动画效果
+        const animateOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.content').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease-out';
+            animateOnScroll.observe(el);
+        });
+        
+        setTimeout(() => {
+            document.querySelector('.page-cover .content').style.opacity = '1';
+            document.querySelector('.page-cover .content').style.transform = 'translateY(0)';
+        }, 100);
+    </script>
+</body>
+</html>
