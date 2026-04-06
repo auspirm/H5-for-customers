@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>美容院精油爆品供应链</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:#1a1a2e;overflow:hidden}
+        .container{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;-webkit-overflow-scrolling:touch}
+        .page{height:100vh;width:100%;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px 24px;position:relative;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)}
+        .page-cover{background:linear-gradient(135deg,#0f0c29 0%,#302b63 50%,#24243e 100%)}
+        .content{max-width:400px;width:100%;text-align:center}
+        .main-title{font-size:32px;font-weight:800;color:#fff;line-height:1.3;margin-bottom:16px;text-shadow:0 4px 20px rgba(0,0,0,0.3)}
+        .sub-title{font-size:16px;color:#ffd700;margin-bottom:24px;font-weight:500;letter-spacing:2px}
+        .desc-text{font-size:15px;color:rgba(255,255,255,0.8);line-height:1.8;margin-bottom:30px}
+        .bottom-text{font-size:14px;color:#ffd700;padding:12px 24px;border:1px solid rgba(255,215,0,0.3);border-radius:30px;display:inline-block;font-weight:600}
+        .section-title{font-size:26px;font-weight:700;color:#ffd700;margin-bottom:30px;text-align:center}
+        .feature-list{list-style:none;width:100%;text-align:left}
+        .feature-item{background:rgba(255,255,255,0.05);border:1px solid rgba(255,215,0,0.2);border-radius:16px;padding:16px 20px;margin-bottom:12px;color:#fff;font-size:14px;line-height:1.6}
+        .feature-item strong{color:#ffd700;display:block;margin-bottom:4px;font-size:15px}
+        .highlight-box{background:rgba(255,215,0,0.15);border:1px solid rgba(255,215,0,0.4);border-radius:12px;padding:20px;margin:20px 0}
+        .highlight-box .label{font-size:14px;color:rgba(255,255,255,0.7);margin-bottom:8px}
+        .highlight-box .value{font-size:20px;font-weight:700;color:#ffd700}
+        .price-table{width:100%;background:rgba(255,255,255,0.03);border-radius:12px;overflow:hidden;border:1px solid rgba(255,215,0,0.2);font-size:12px}
+        .table-header{background:rgba(255,215,0,0.3);padding:12px;font-weight:700;color:#ffd700}
+        .table-row{display:flex;border-bottom:1px solid rgba(255,255,255,0.1);padding:10px 8px;color:#fff}
+        .table-row:last-child{border-bottom:none}
+        .col-num{width:8%;text-align:center}
+        .col-name{width:36%;padding-right:4px}
+        .col-price{width:18%;text-align:center;color:#ffd700;font-weight:600}
+        .col-discount{width:18%;text-align:center;color:#ff6b6b}
+        .col-discount2{width:18%;text-align:center;color:#4ecdc4}
+        .contact-box{background:rgba(255,255,255,0.1);border:2px solid #ffd700;border-radius:20px;padding:40px 30px;margin-top:20px}
+        .wechat-id{font-size:36px;color:#ffd700;font-weight:800;margin:20px 0;letter-spacing:3px}
+        .cta-button{background:linear-gradient(135deg,#ffd700 0%,#ffed4e 100%);color:#1a1a2e;padding:16px 40px;border-radius:30px;font-size:18px;font-weight:700;border:none;margin-top:20px;cursor:pointer}
+        .scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.6);font-size:13px;animation:bounce 2s infinite}
+        @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-10px)}}
+        .arrow{width:20px;height:20px;border-right:2px solid #ffd700;border-bottom:2px solid #ffd700;transform:rotate(45deg);margin:10px auto}
+        .dots{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:100}
+        .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.3)}
+        .dot.active{background:#ffd700;width:20px}
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <!-- 第1页：封面 -->
+        <section class="page page-cover">
+            <div class="content">
+                <div class="sub-title">◆ 源头农场直供 · 抢占情绪经济风口 ◆</div>
+                <h1 class="main-title">美容院精油<br>爆品供应链</h1>
+                <p class="desc-text">全球优质产地精油｜院线专用复方油<br>拿货即送情绪疗愈线上课<br>线下复训专享5折</p >
+                <span class="bottom-text">一瓶享代理批发价</span>
+            </div>
+            <div class="scroll-hint">向上滑动查看<div class="arrow"></div></div>
+        </section>
+
+        <!-- 第2页：核心优势 -->
+        <section class="page">
+            <div class="content">
+                <h2 class="section-title">我们的核心优势</h2>
+                <div class="sub-title">源头原料商 · 真正无中间商差价</div>
+                <ul class="feature-list">
+                    <li class="feature-item"><strong>全球农场直供</strong>伊朗大马士革玫瑰、印度檀香、欧洲有机花类</li>
+                    <li class="feature-item"><strong>自有供应链</strong>纯度高、活性强、不掺矿物油</li>
+                    <li class="feature-item"><strong>院线专用配方</strong>安全温和，敏肌/产后均可使用</li>
+                    <li class="feature-item"><strong>价格透明</strong>给美容院预留充足利润空间</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 第3页：为什么必须做精油 -->
+        <section class="page">
+            <div class="content">
+                <h2 class="section-title">为什么必须做精油项目</h2>
+                <div class="sub-title">情绪需求爆发 · 门店增收新风口</div>
+                <div class="highlight-box">
+                    <div class="label">现代人焦虑、失眠、压力大、内分泌失调激增</div>
+                    <div class="value">芳香疗愈 = 高客单 + 高复购 + 高转介绍</div>
+                </div>
+                <ul class="feature-list">
+                    <li class="feature-item">提升门店专业度与档次</li>
+                    <li class="feature-item">一油多用，适配面部/身体/私密/养生全项目</li>
+                    <li class="feature-item">零售价可达批发价3倍，利润空间拉满</li>
+                    <li class="feature-item">客户体验强，锁客更轻松</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 第4页：合作扶持政策 -->
+        <section class="page">
+            <div class="content">
+                <h2 class="section-title">合作扶持政策</h2>
+                <div class="sub-title">拿货即享双重培训扶持</div>
+                <div class="feature-list">
+                    <li class="feature-item"><strong>① 免费赠送</strong>情绪疗愈线上专业培训课程（芳香心理学+项目话术+操作方案）</li>
+                    <li class="feature-item"><strong>② 线下复训专享5折</strong>手法实操 · 店销拓客 · 疗程设计 持续赋能门店盈利</li>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第5页：拿货政策 -->
+        <section class="page">
+            <div class="content">
+                <h2 class="section-title">拿货政策说明</h2>
+                <div class="sub-title">灵活拿货 · 无压力创业</div>
+                <div class="highlight-box"><div class="label">规格</div><div class="value">100ml/瓶院线装</div></div>
+                <ul class="feature-list">
+                    <li class="feature-item"><strong>1瓶起批</strong>一瓶享代理批发价</li>
+                    <li class="feature-item"><strong>10–100瓶</strong>享 8折优惠</li>
+                    <li class="feature-item"><strong>101–1000瓶</strong>享 6折优惠</li>
+                </ul>
+                <div class="highlight-box"><div class="label">建议零售价</div><div class="value">批发价 × 3</div></div>
+            </div>
+        </section>
+
+        <!-- 第6页：面部护理系列 -->
+        <section class="page">
+            <div class="content" style="max-width:100%;padding:0 12px">
+                <h2 class="section-title">面部护理系列</h2>
+                <div class="sub-title">100ml/瓶 · 单位：元</div>
+                <div class="price-table">
+                    <div class="table-header">面部护理系列报价单</div>
+                    <div class="table-row" style="background:rgba(255,215,0,0.1);font-size:11px"><div class="col-num">序号</div><div class="col-name">产品名称</div><div class="col-price">批发价</div><div class="col-discount">10-100瓶</div><div class="col-discount2">101-1000瓶</div></div>
+                    <div class="table-row"><div class="col-num">1</div><div class="col-name">水润保湿复方精油</div><div class="col-price">150</div><div class="col-discount">120</div><div class="col-discount2">90</div></div>
+                    <div class="table-row"><div class="col-num">2</div><div class="col-name">提亮焕肤复方精油</div><div class="col-price">150</div><div class="col-discount">120</div><div class="col-discount2">90</div></div>
+                    <div class="table-row"><div class="col-num">3</div><div class="col-name">紧致抗衰复方精油</div><div class="col-price">180</div><div class="col-discount">144</div><div class="col-discount2">108</div></div>
+                    <div class="table-row"><div class="col-num">4</div><div class="col-name">舒缓修护复方精油</div><div class="col-price">150</div><div class="col-discount">120</div><div class="col-discount2">90</div></div>
+                    <div class="table-row" style="background:rgba(255,215,0,0.1)"><div class="col-num">5</div><div class="col-name">大马士革玫瑰顶奢护肤油</div><div class="col-price">580</div><div class="col-discount">464</div><div class="col-discount2">348</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第7页：身体养生系列 -->
+        <section class="page">
+            <div class="content" style="max-width:100%;padding:0 12px">
+                <h2 class="section-title">身体养生系列</h2>
+                <div class="sub-title">100ml/瓶 · 单位：元</div>
+                <div class="price-table">
+                    <div class="table-header">身体养生系列报价单</div>
+                    <div class="table-row" style="background:rgba(255,215,0,0.1);font-size:11px"><div class="col-num">序号</div><div class="col-name">产品名称</div><div class="col-price">批发价</div><div class="col-discount">10-100瓶</div><div class="col-discount2">101-1000瓶</div></div>
+                    <div class="table-row"><div class="col-num">1</div><div class="col-name">疏通肩颈复方精油</div><div class="col-price">90</div><div class="col-discount">72</div><div class="col-discount2">54</div></div>
+                    <div class="table-row"><div class="col-num">2</div><div class="col-name">暖宫散寒复方精油</div><div class="col-price">150</div><div class="col-discount">120</div><div class="col-discount2">90</div></div>
+                    <div class="table-row"><div class="col-num">3</div><div class="col-name">淋巴排毒复方精油</div><div class="col-price">120</div><div class="col-discount">96</div><div class="col-discount2">72</div></div>
+                    <div class="table-row"><div class="col-num">4</div><div class="col-name">舒缓助眠复方精油</div><div class="col-price">150</div><div class="col-discount">120</div><div class="col-discount2">90</div></div>
+                    <div class="table-row"><div class="col-num">5</div><div class="col-name">头皮护养按摩油</div><div class="col-price">150</div><div class="col-discount">120</div><div class="col-discount2">90</div></div>
+                    <div class="table-row"><div class="col-num">6</div><div class="col-name">芳香开背全身按摩油</div><div class="col-price">80</div><div class="col-discount">64</div><div class="col-discount2">48</div></div>
